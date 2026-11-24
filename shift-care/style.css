@@ -1,0 +1,229 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+.header {
+  background-color: #1e3a8a;
+  color: #fff;
+  padding: 20px 16px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+}
+
+.header p {
+  font-size: 0.88rem;
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+.container {
+  max-width: 760px;
+  margin: 20px auto;
+  padding: 0 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.summary-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  border-top: 4px solid #64748b;
+}
+
+.summary-box.good { border-top-color: #10b981; }
+.summary-box.caution { border-top-color: #f59e0b; }
+.summary-box.alert { border-top-color: #dc2626; }
+
+.summary-label {
+  display: block;
+  font-size: 0.78rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.summary-num {
+  font-size: 1.4rem;
+  color: #0f172a;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 8px;
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  border-left: 4px solid #1e3a8a;
+  padding-left: 10px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-bottom: 5px;
+}
+
+.badge-req {
+  background: #dc2626;
+  color: #fff;
+  font-size: 0.68rem;
+  padding: 2px 5px;
+  border-radius: 4px;
+  margin-left: 4px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  width: 100%;
+  background-color: #1e3a8a;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-primary:hover { background-color: #1d4ed8; }
+
+.btn-outline {
+  background: #fff;
+  border: 1px solid #94a3b8;
+  color: #475569;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.btn-outline:hover { background: #f8fafc; }
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  width: 180px;
+  padding: 7px 10px;
+  font-size: 0.85rem;
+}
+
+.btn-secondary {
+  background: #e2e8f0;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-secondary.active {
+  background: #dc2626;
+  color: #fff;
+}
+
+.report-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.report-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.report-item.alert { border-left: 5px solid #dc2626; background-color: #fef2f2; }
+.report-item.caution { border-left: 5px solid #f59e0b; background-color: #fffbeb; }
+.report-item.good { border-left: 5px solid #10b981; }
+
+.report-meta { font-size: 0.82rem; color: #64748b; margin-bottom: 3px; }
+.report-name { font-weight: bold; font-size: 1.02rem; }
+.report-memo { margin-top: 5px; font-size: 0.9rem; }
+
+.btn-delete {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid #cbd5e1;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.btn-delete:hover { color: #dc2626; border-color: #dc2626; }
+
+@media (max-width: 560px) {
+  .form-row { grid-template-columns: 1fr; }
+  .summary-grid { grid-template-columns: repeat(2, 1fr); }
+  .search-input { width: 100%; }
+}

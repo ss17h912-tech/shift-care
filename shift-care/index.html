@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShiftCare | 体調・シフト希望共有システム</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1>ShiftCare</h1>
+    <p>現場スタッフ向け 体調・シフト希望かんたん共有ツール</p>
+  </header>
+
+  <main class="container">
+    <section class="summary-grid">
+      <div class="summary-box">
+        <span class="summary-label">総提出数</span>
+        <strong id="countTotal" class="summary-num">0</strong>
+      </div>
+      <div class="summary-box good">
+        <span class="summary-label">良好</span>
+        <strong id="countGood" class="summary-num">0</strong>
+      </div>
+      <div class="summary-box caution">
+        <span class="summary-label">やや不調</span>
+        <strong id="countCaution" class="summary-num">0</strong>
+      </div>
+      <div class="summary-box alert">
+        <span class="summary-label">要相談</span>
+        <strong id="countAlert" class="summary-num">0</strong>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-title-row">
+        <h2>1. 体調・シフト希望を入力</h2>
+        <button type="button" id="loadSampleBtn" class="btn-outline">デモデータを追加</button>
+      </div>
+      <form id="reportForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="staffName">スタッフ名 <span class="badge-req">必須</span></label>
+            <input type="text" id="staffName" placeholder="例：佐藤 健太" required>
+          </div>
+          <div class="form-group">
+            <label for="targetDate">対象日 <span class="badge-req">必須</span></label>
+            <input type="date" id="targetDate" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="condition">本日の体調ステータス <span class="badge-req">必須</span></label>
+          <select id="condition" required>
+            <option value="良好">良好（通常勤務OK）</option>
+            <option value="やや不調">やや不調（経過観察・軽作業希望）</option>
+            <option value="要相談">要相談（シフト交代・休養相談）</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="shiftRequest">シフト希望・連絡メモ</label>
+          <textarea id="shiftRequest" rows="2" placeholder="例：14:00〜19:00希望 / 少し喉の違和感あり"></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary">この内容で提出する</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="list-header">
+        <h2>2. 提出状況一覧</h2>
+        <div class="filter-controls">
+          <input type="text" id="searchInput" class="search-input" placeholder="名前やメモで検索...">
+          <button type="button" id="filterAlertBtn" class="btn-secondary">要確認のみ表示</button>
+        </div>
+      </div>
+      <div id="reportList" class="report-list"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
